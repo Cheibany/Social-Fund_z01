@@ -1,0 +1,6 @@
+-Login(auth jwt - to learnz01)
+-Limit acces for apropriate user
+-make the design for the dashboard
+-Add graphic for the dashboard
+-Show the component of info
+-profile 
