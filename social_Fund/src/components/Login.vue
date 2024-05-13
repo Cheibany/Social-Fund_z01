@@ -10,15 +10,17 @@
       <div class="modal-container">
         <div class="modal-left">
           <h1 class="modal-title">Welcome!</h1>
-          <p class="modal-desc">Fanny pack hexagon food truck, street art waistcoat kitsch.</p>
+          <p class="modal-desc">Social Fund Z01</p>
+          <form @submit.prevent="login">
           <div class="input-block">
             <label for="email" class="input-label">Email</label>
-            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="email"  name="email" id="email" placeholder="Email" v-model="email" >
           </div>
           <div class="input-block">
             <label for="password" class="input-label">Password</label>
-            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="password" id="password" placeholder="Password" v-model="password" >
           </div>
+        </form>
           <div class="modal-buttons">
             <a href="" class="">Forgot your password?</a>
             <button class="input-button">Login</button>
@@ -44,49 +46,6 @@
 </style>
 
 
-<script>
-export default {
-  data() {
-    return {
-      isOpened: false
-    };
-  },
-  methods: {
-    openModal() {
-      const modal = document.querySelector(".modal");
-      const body = document.querySelector("body");
-      modal.classList.add("is-open");
-      body.style.overflow = "hidden";
-    },
-    closeModal() {
-      const modal = document.querySelector(".modal");
-      const body = document.querySelector("body");
-      modal.classList.remove("is-open");
-      body.style.overflow = "initial";
-    }
-  },
-  mounted() {
-    const modalButton = document.querySelector(".modal-button");
-    const closeButton = document.querySelector(".close-button");
-    const scrollDown = document.querySelector(".scroll-down");
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > window.innerHeight / 3 && !this.isOpened) {
-        this.isOpened = true;
-        scrollDown.style.display = "none";
-        this.openModal();
-      }
-    });
-
-    modalButton.addEventListener("click", this.openModal);
-    closeButton.addEventListener("click", this.closeModal);
-
-    document.onkeydown = evt => {
-      evt = evt || window.event;
-      if (evt.keyCode === 27) this.closeModal();
-    };
-  }
-}
-</script>
+<script src="../assets/js/LoginModal.js"></script>
 
 ./Login.vue
